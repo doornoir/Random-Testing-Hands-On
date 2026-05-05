@@ -1,6 +1,5 @@
+import credit_card_validator from credit_card_validator
 import random 
-import credit_card_validator
-from credit_card_validator
 
 def make_number(prefix, length):
   """Creates a random credit card-like number with a chosen prefix and length.""""
