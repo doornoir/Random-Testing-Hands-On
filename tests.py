@@ -70,7 +70,6 @@ class TestRandomCreditCards(unittest.TestCase):
 
     def test_more_bug5(self):
         prefixes = ["37", "26", "25"]
-    
         for prefix in prefixes:
             for length in [15, 16]:
                 for _ in range(10000):  # high repetition
