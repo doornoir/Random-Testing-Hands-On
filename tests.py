@@ -70,11 +70,12 @@ class TestRandomCreditCards(unittest.TestCase):
 
     def test_more_bug5(self):
         prefixes = ["37", "26", "25"]
-        for _ in range(20000):
-            prefix = random.choice(prefixes)
-            length = random.choice([15, 16])
-            num = make_number(prefix, length)
-            credit_card_validator(num)
+    
+        for prefix in prefixes:
+            for length in [15, 16]:
+                for _ in range(10000):  # high repetition
+                    num = make_number(prefix, length)
+                    credit_card_validator(num)
 
     def test_more_bug6(self):
         prefixes = ["26", "34", "47"]
