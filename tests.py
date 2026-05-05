@@ -67,7 +67,28 @@ class TestRandomCreditCards(unittest.TestCase):
             length = random.randint(10, 19)
             num = "".join(str(random.randint(0, 9)) for _ in range(length))
             credit_card_validator(num)
+            
+        def test_more_bug5(self):
+        prefixes = ["37", "26", "25"]
+        for _ in range(20000):
+            prefix = random.choice(prefixes)
+            length = random.choice([15, 16])
+            num = make_number(prefix, length)
+            credit_card_validator(num)
 
+    def test_more_bug6(self):
+        prefixes = ["26", "34", "47"]
+        endings = ["258", "1258"]
+        for _ in range(20000):
+            prefix = random.choice(prefixes)
+            ending = random.choice(endings)
+            length = random.choice([15, 16])
+            middle_len = length - len(prefix) - len(ending)
+
+            if middle_len > 0:
+                middle = "".join(str(random.randint(0, 9)) for _ in range(middle_len))
+                num = prefix + middle + ending
+                credit_card_validator(num)
 
 if __name__ == "__main__":
     unittest.main()
