@@ -68,7 +68,7 @@ class TestRandomCreditCards(unittest.TestCase):
             num = "".join(str(random.randint(0, 9)) for _ in range(length))
             credit_card_validator(num)
             
-        def test_more_bug5(self):
+    def test_more_bug5(self):
         prefixes = ["37", "26", "25"]
         for _ in range(20000):
             prefix = random.choice(prefixes)
